@@ -12,6 +12,6 @@ public interface SpeciesInterface {
     //Get all locations
     List<Species> getAll();
 
-//    //Find the location
-//    Species findById(int id);
+    //Find the location
+    Species findById(int id);
 }

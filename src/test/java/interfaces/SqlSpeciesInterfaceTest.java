@@ -34,5 +34,20 @@ public class SqlSpeciesInterfaceTest {
         assertEquals(theId, species.getId());
     }
 
+    @Test
+    public void getsAllSpeciesAdded() {
+        Species first = new Species("Panthera Leo");
+        Species second = new Species("Mimosa pudica");
+        sqlSpeciesInterface.add(first);
+        sqlSpeciesInterface.add(second);
+        assertEquals(2, sqlSpeciesInterface.getAll().size());
+    }
 
+    @Test
+    public void fetchesCorrectSpeciesById() {
+        Species theSpecies = new Species("Panthera Leo");
+        sqlSpeciesInterface.add(theSpecies);
+        Species found = sqlSpeciesInterface.findById(theSpecies.getId());
+        assertEquals(theSpecies, found);
+    }
 }
