@@ -12,10 +12,7 @@ public interface RangerInterface {
 
     //find specific job
     Ranger findById(int id);
+
+    //delete
+    void delete(int id);
 }
-//    //update
-//    void update(Ranger ranger, int id);
-//
-//    //delete
-//    void delete(int id);
-//}

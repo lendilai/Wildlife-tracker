@@ -44,6 +44,21 @@ public class SqlRangerInterfaceTest {
 
     }
 
+    @Test
+    public void rangerListIsEmptyOnInstantiation() throws Exception{
+        assertEquals(0, sqlRangerInterface.getAll().size());
+    }
+
+    @Test
+    public void deletesARanger() {
+        Ranger newRanger = setupRanger();
+        Ranger second = setupRanger();
+        sqlRangerInterface.add(newRanger);
+        sqlRangerInterface.add(second);
+        sqlRangerInterface.delete(newRanger.getId());
+        assertEquals(1, sqlRangerInterface.getAll().size());
+    }
+
     public Ranger setupRanger(){
         return new Ranger("frontend",97865746);
     }

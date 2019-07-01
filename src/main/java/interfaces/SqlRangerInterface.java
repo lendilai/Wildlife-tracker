@@ -29,7 +29,10 @@ public class SqlRangerInterface implements RangerInterface {
 
     @Override
     public List<Ranger> getAll() {
-        return null;
+        String sql = "SELECT * FROM rangers";
+        try(Connection conn = sql2o.open()){
+           return conn.createQuery(sql).executeAndFetch(Ranger.class);
+        }
     }
 
     @Override
@@ -37,6 +40,16 @@ public class SqlRangerInterface implements RangerInterface {
         String sql = "SELECT * FROM  rangers WHERE id=:id";
         try (Connection con = sql2o.open()){
             return con.createQuery(sql).addParameter("id",id).executeAndFetchFirst(Ranger.class);
+        }
+    }
+
+    @Override
+    public void delete(int id){
+        String sql = "DELETE from rangers WHERE id=:id";
+        try(Connection conn = sql2o.open()){
+            conn.createQuery(sql).addParameter("id", id).executeUpdate();
+        }catch (Sql2oException ex){
+            System.out.println(ex);
         }
     }
 
