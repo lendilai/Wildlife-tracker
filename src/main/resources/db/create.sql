@@ -15,3 +15,9 @@ SET MODE PostgreSQL;
     id int PRIMARY KEY auto_increment,
     the_name VARCHAR,
  );
+
+ CREATE TABLE IF NOT EXISTS animals(
+    id int PRIMARY KEY auto_increment,
+    the_name VARCHAR,
+    endangered boolean
+ );

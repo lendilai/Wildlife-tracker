@@ -27,4 +27,6 @@ public class LocationTest {
         Location newLocation = new Location("Kenya");
         assertEquals("Kenya", newLocation.getLocation());
     }
+
+
 }
