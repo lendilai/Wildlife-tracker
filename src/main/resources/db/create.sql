@@ -4,3 +4,8 @@ SET MODE PostgreSQL;
     ranger VARCHAR,
      badge int
  );
+
+ CREATE TABLE IF NOT EXISTS locations(
+    id int PRIMARY KEY auto_increment,
+    location VARCHAR,
+ );

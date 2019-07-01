@@ -8,7 +8,6 @@ public class Ranger {
     private String ranger;
     private int  badge;
     private int id;
-    private static ArrayList<Ranger> rangers = new ArrayList<>();
 
 
 
@@ -16,7 +15,6 @@ public class Ranger {
 
         this.ranger=ranger;
         this.badge=badge;
-        this.rangers.add(this);
         this.id = 1;
     }
 
@@ -33,10 +31,6 @@ public class Ranger {
     @Override
     public int hashCode() {
         return Objects.hash(getRanger(), getBadge(), getId());
-    }
-
-    public static ArrayList<Ranger> getAll() {
-        return rangers;
     }
 
     public String getRanger() {

@@ -26,11 +26,6 @@ public class RangerTest {
         assertEquals(547,ranger.getBadge());
     }
 
-    @Test
-    public void getsAllRangersCreated(){
-        Ranger ranger = setUpRanger();
-        assertTrue(Ranger.getAll().contains(ranger));
-    }
 
     public Ranger setUpRanger(){
         return new Ranger("HR",547);
