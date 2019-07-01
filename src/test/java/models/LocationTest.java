@@ -21,4 +21,10 @@ public class LocationTest {
         Location newLocation = new Location("Kenya");
         assertEquals(true,newLocation instanceof Location);
     }
+
+    @Test
+    public void getsCorrectLocation_Kenya() throws Exception{
+        Location newLocation = new Location("Kenya");
+        assertEquals("Kenya", newLocation.getLocation());
+    }
 }
