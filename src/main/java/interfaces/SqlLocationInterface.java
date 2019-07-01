@@ -3,6 +3,8 @@ package interfaces;
 import models.Location;
 import org.sql2o.*;
 
+import java.util.List;
+
 public class SqlLocationInterface implements LocationInterface{
     private final Sql2o sql2o;
 
@@ -18,6 +20,14 @@ public class SqlLocationInterface implements LocationInterface{
            location.setId(id);
         }catch (Sql2oException ex){
             System.out.println(ex);
+        }
+    }
+
+    @Override
+    public List<Location> getAll(){
+        String sql = "SELECT * FROM locations";
+        try(Connection conn = sql2o.open()){
+            return conn.createQuery(sql).executeAndFetch(Location.class);
         }
     }
 }

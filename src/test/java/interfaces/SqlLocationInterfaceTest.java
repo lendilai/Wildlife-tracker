@@ -33,4 +33,13 @@ public class SqlLocationInterfaceTest {
         sqlLocationInterface.add(newLocation);
         assertEquals(theId, newLocation.getId());
     }
+
+    @Test
+    public void getsAllLocationsAdded() {
+        Location first = new Location("Kenya");
+        Location second = new Location("Senegal");
+        sqlLocationInterface.add(first);
+        sqlLocationInterface.add(second);
+        assertEquals(2,sqlLocationInterface.getAll().size());
+    }
 }
