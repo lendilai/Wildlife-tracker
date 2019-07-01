@@ -11,6 +11,6 @@ public interface LocationInterface {
     //Get all locations
     List<Location> getAll();
 
-//    //Find the location
-//    Location findById(int id);
+    //Find the location
+    Location findById(int id);
 }

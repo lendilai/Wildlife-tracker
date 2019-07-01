@@ -42,4 +42,12 @@ public class SqlLocationInterfaceTest {
         sqlLocationInterface.add(second);
         assertEquals(2,sqlLocationInterface.getAll().size());
     }
+
+    @Test
+    public void findsALocationByItsId() {
+        Location myLocation = new Location("Kenya");
+        sqlLocationInterface.add(myLocation);
+        Location fetchLocation = sqlLocationInterface.findById(myLocation.getId());
+        assertEquals(myLocation, fetchLocation);
+    }
 }

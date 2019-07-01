@@ -30,4 +30,12 @@ public class SqlLocationInterface implements LocationInterface{
             return conn.createQuery(sql).executeAndFetch(Location.class);
         }
     }
+
+    @Override
+    public Location findById(int id){
+        String sql = "SELECT * FROM locations WHERE id=:id";
+        try(Connection conn = sql2o.open()){
+            return conn.createQuery(sql).addParameter("id", id).executeAndFetchFirst(Location.class);
+        }
+    }
 }
