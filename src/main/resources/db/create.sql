@@ -9,3 +9,9 @@ SET MODE PostgreSQL;
     id int PRIMARY KEY auto_increment,
     location VARCHAR,
  );
+
+
+ CREATE TABLE IF NOT EXISTS species(
+    id int PRIMARY KEY auto_increment,
+    the_name VARCHAR,
+ );
