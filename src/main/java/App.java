@@ -110,6 +110,13 @@ public class App {
             user.put("allLocations", sqlLocationInterface.getAll());
             return new ModelAndView(user, "locations.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //Get: To filter the sightings by most recent
+        get("/sightings/most-recent", (request, response) -> {
+            Map<String, Object> user = new HashMap<>();
+            user.put("filterSightings", sqlSightingsInterface.filterSightings());
+            return new ModelAndView(user, "sightings-filtered.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 
 }

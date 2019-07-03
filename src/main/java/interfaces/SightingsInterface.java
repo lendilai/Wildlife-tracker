@@ -13,4 +13,7 @@ public interface SightingsInterface {
 
     //Find a single one
     Sightings findSighting(int id);
+
+    //Filter to show from most recent
+    List<Sightings> filterSightings();
 }

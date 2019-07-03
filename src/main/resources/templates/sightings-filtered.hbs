@@ -1,14 +1,12 @@
 {{#partial "content"}}
-    {{#if allSightings}}
-        {{#each allSightings}}
+    {{#if filterSightings}}
+        {{#each filterSightings}}
             <p>{{animal_id}}</p>
             <p>{{species_id}}</p>
             <p>{{location_id}}</p>
             <p>{{ranger_id}}</p>
         {{/each}}
-
-        <a href="/sightings/most-recent">Filter</a>
-        {{else}}
+    {{else}}
         <p>No sightings</p>
     {{/if}}
 {{/partial}}

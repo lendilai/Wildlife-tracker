@@ -31,6 +31,14 @@ public class SqlSightingsInterface implements SightingsInterface{
         }
     }
 
+    @Override
+    public List<Sightings> filterSightings(){
+        String sql = "SELECT * FROM sightings ORDER BY id DESC";
+        try(Connection conn = sql2o.open()){
+            return conn.createQuery(sql).executeAndFetch(Sightings.class);
+        }
+    }
+
 
     @Override
     public Sightings findSighting(int id){
