@@ -21,16 +21,16 @@ public class SightingsTest {
 
     @Test
     public void newSighting_instantiatesCorrectly() {
-        Sightings newSighting = new Sightings(1,1,1,1);
+        Sightings newSighting = new Sightings("Lion", "Panthera leo", "John Doe", "Kenya");
         assertTrue(newSighting instanceof Sightings);
     }
 
     @Test
     public void Sighting_instantiatesWithCorrectValues() {
-        Sightings first = new Sightings(2,8,3,17);
-        assertEquals(2, first.getAnimal_id());
-        assertEquals(17, first.getLocation_id());
-        assertEquals(3, first.getRanger_id());
-        assertEquals(8, first.getSpecies_id());
+        Sightings first = new Sightings("Lion", "Panthera leo", "John Doe", "Kenya");
+        assertEquals("Lion", first.getAnimal_id());
+        assertEquals("Kenya", first.getLocation_id());
+        assertEquals("John Doe", first.getRanger_id());
+        assertEquals("Panthera leo", first.getSpecies_id());
     }
 }

@@ -20,6 +20,16 @@ public class App {
 //        SqlSpeciesInterface sqlSpeciesInterface = new SqlSpeciesInterface(sql2o);
 //        SqlLocationInterface sqlLocationInterface = new SqlLocationInterface(sql2o);
 //        SqlSightingsInterface sqlSightingsInterface = new SqlSightingsInterface(sql2o);
+
+        //Get: Display home page
+        //Get: Display add info page with tabs for forms
+        //Post: Receive data from the Animals form
+        //Post: Receive data from the Species form
+        //Post: Receive data from the Ranger form
+        //Post: Receive data from the Locations form
+        //Get: Display the success page
+        //Get: Display the Sightings form
+        //Post: Receive data from the Sightings form
     }
 
 }
