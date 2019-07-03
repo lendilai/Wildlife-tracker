@@ -15,4 +15,5 @@ public interface RangerInterface {
 
     //delete
     void delete(int id);
+    void clearAllRangers();
 }

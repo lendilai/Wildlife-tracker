@@ -13,4 +13,7 @@ public interface LocationInterface {
 
     //Find the location
     Location findById(int id);
+
+    //Clear
+    void clearAllLocations();
 }

@@ -14,4 +14,7 @@ public interface SpeciesInterface {
 
     //Find a specie
     Species findById(int id);
+
+    //Clear
+    void clearAllSpecies();
 }

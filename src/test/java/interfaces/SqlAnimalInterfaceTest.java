@@ -1,44 +1,54 @@
 package interfaces;
 
 import models.Animal;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.sql2o.*;
 
 import static org.junit.Assert.*;
 public class SqlAnimalInterfaceTest {
 
-    private Connection conn;
-    private SqlAnimalInterface sqlAnimalInterface;
+    private static Connection conn;
+    private static SqlAnimalInterface sqlAnimalInterface;
 
-    @Before
-    public void setUp() throws Exception {
-        String establishConn = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(establishConn,"","");
+    @BeforeClass
+    public static void setUp() throws Exception{
+        String establishConn = "jdbc:postgresql://localhost:5432/wildlife_tracker_test";
+        Sql2o sql2o = new Sql2o(establishConn,"rlgriff","547");
         sqlAnimalInterface = new SqlAnimalInterface(sql2o);
         conn = sql2o.open();
     }
-
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() throws Exception{
+        System.out.println("Clearing database");
+        sqlAnimalInterface.clearAllAnimals();
+    }
+
+    @AfterClass
+    public static void shutDown() throws Exception{
         conn.close();
+        System.out.println("Connection closed");
     }
 
     @Test
     public void addsAnimalAndSetsId() throws Exception{
-        Animal newAnimal = new Animal("Lion", false);
-        int theId = newAnimal.getId();
+        Animal newAnimal = new Animal("Lion", "Okay", "New-born", false);
         sqlAnimalInterface.add(newAnimal);
+        int theId = newAnimal.getId();
         assertEquals(theId, newAnimal.getId());
     }
 
     @Test
     public void getsAllAnimalObjects() {
-        Animal first = new Animal("Lion", false);
-        Animal second = new Animal("Panda", true);
+        Animal first = new Animal("Lion", "Okay", "New-born", false);
         sqlAnimalInterface.add(first);
-        sqlAnimalInterface.add(second);
-        assertEquals(2, sqlAnimalInterface.getAll().size());
+        assertEquals(1, sqlAnimalInterface.getAll().size());
+    }
+
+    @Test
+    public void fetchesCorrectAnimal() {
+        Animal theAnimal = new Animal("Lion", "Poor", "Prime-Adult", false);
+        sqlAnimalInterface.add(theAnimal);
+        Animal found = sqlAnimalInterface.findById(theAnimal.getId());
+        assertEquals(theAnimal, found);
     }
 }

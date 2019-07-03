@@ -10,7 +10,10 @@ public interface AnimalInterface {
 
     //Get all animals
     List<Animal> getAll();
-//
-//    //Fetch an animal
-//    Animal findById(int id);
+
+    //Fetch an animal
+    Animal findById(int id);
+
+    //Clear
+    void clearAllAnimals();
 }

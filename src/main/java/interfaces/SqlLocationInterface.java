@@ -16,8 +16,11 @@ public class SqlLocationInterface implements LocationInterface{
     public void add(Location location){
         String sql = "INSERT INTO locations(location) VALUES (:location)";
         try(Connection conn = sql2o.open()){
-           int id = (int) conn.createQuery(sql,true).bind(location).executeUpdate().getKey();
+           int id = (int) conn.createQuery(sql,true)
+                   .bind(location)
+                   .executeUpdate().getKey();
            location.setId(id);
+           System.out.println(id);
         }catch (Sql2oException ex){
             System.out.println(ex);
         }
@@ -38,4 +41,16 @@ public class SqlLocationInterface implements LocationInterface{
             return conn.createQuery(sql).addParameter("id", id).executeAndFetchFirst(Location.class);
         }
     }
+
+    @Override
+    public void clearAllLocations(){
+        String sql = "DELETE FROM locations";
+        try(Connection conn = sql2o.open()){
+            conn.createQuery(sql).executeUpdate();
+        }catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
+
+
 }

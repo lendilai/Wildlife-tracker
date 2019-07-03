@@ -9,7 +9,6 @@ public class Location {
 
     public Location(String location){
         this.location = location;
-        this.id = 1;
     }
 
     @Override

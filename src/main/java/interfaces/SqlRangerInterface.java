@@ -53,4 +53,14 @@ public class SqlRangerInterface implements RangerInterface {
         }
     }
 
+    @Override
+    public void clearAllRangers(){
+        String sql = "DELETE from rangers";
+        try(Connection conn = sql2o.open()){
+            conn.createQuery(sql).executeUpdate();
+        }catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
+
 }

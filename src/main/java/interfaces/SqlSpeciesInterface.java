@@ -38,4 +38,15 @@ public class SqlSpeciesInterface implements SpeciesInterface{
             return conn.createQuery(sql).addParameter("id", id).executeAndFetchFirst(Species.class);
         }
     }
+
+
+    @Override
+    public void clearAllSpecies(){
+        String sql = "DELETE FROM species";
+        try(Connection conn = sql2o.open()){
+            conn.createQuery(sql).executeUpdate();
+        }catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
 }

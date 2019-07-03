@@ -1,46 +1,48 @@
 package interfaces;
 
 import models.Species;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.sql2o.*;
 
 import static org.junit.Assert.*;
 
 public class SqlSpeciesInterfaceTest {
 
-    private SqlSpeciesInterface sqlSpeciesInterface;
-    private Connection conn;
+    private static SqlSpeciesInterface sqlSpeciesInterface;
+    private static Connection conn;
 
-    @Before
-    public void setUp() throws Exception {
-        String establishConn = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(establishConn,"","");
+    @BeforeClass
+    public static void setUp() throws Exception{
+        String establishConn = "jdbc:postgresql://localhost:5432/wildlife_tracker_test";
+        Sql2o sql2o = new Sql2o(establishConn,"rlgriff","547");
         sqlSpeciesInterface = new SqlSpeciesInterface(sql2o);
         conn = sql2o.open();
     }
-
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() throws Exception{
+        System.out.println("Clearing database");
+        sqlSpeciesInterface.clearAllSpecies();
+    }
+
+    @AfterClass
+    public static void shutDown() throws Exception{
         conn.close();
+        System.out.println("Connection closed");
     }
 
     @Test
     public void addsSpeciesAndSetsId() throws Exception{
         Species species = new Species("Panthera Leo");
-        int theId = species.getId();
         sqlSpeciesInterface.add(species);
+        int theId = species.getId();
         assertEquals(theId, species.getId());
     }
 
     @Test
     public void getsAllSpeciesAdded() {
         Species first = new Species("Panthera Leo");
-        Species second = new Species("Mimosa pudica");
         sqlSpeciesInterface.add(first);
-        sqlSpeciesInterface.add(second);
-        assertEquals(2, sqlSpeciesInterface.getAll().size());
+        assertEquals(1, sqlSpeciesInterface.getAll().size());
     }
 
     @Test
