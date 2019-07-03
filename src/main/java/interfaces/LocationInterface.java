@@ -1,6 +1,7 @@
 package interfaces;
 
 import models.Location;
+import models.Sightings;
 
 import java.util.List;
 
@@ -16,4 +17,5 @@ public interface LocationInterface {
 
     //Clear
     void clearAllLocations();
+
 }

@@ -1,6 +1,7 @@
 package interfaces;
 
 import models.Location;
+import models.Sightings;
 import org.sql2o.*;
 
 import java.util.List;

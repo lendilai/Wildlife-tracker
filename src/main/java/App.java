@@ -103,6 +103,13 @@ public class App {
             user.put("allSightings", sqlSightingsInterface.getAllSightings());
             return new ModelAndView(user, "sightings.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //Get: View all locations
+        get("/locations", (request, response) -> {
+            Map<String, Object> user = new HashMap<>();
+            user.put("allLocations", sqlLocationInterface.getAll());
+            return new ModelAndView(user, "locations.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 
 }

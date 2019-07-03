@@ -2,6 +2,7 @@ package models;
 
 public class Animal extends AnimalsGen{
     private String health;
+
     private String age;
     private boolean endangered;
 
