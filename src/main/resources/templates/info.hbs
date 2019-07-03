@@ -11,8 +11,20 @@
 </form>
 
     <form action="/info/species/new" method="post">
-        <input type="text" name="species" placeholder="species" required>
+        <input type="text" name="species" placeholder="species" required><br>
         <button type="submit">Send</button>
     </form>
+
+    <form action="/info/ranger/new" method="post">
+        <input type="text" name="ranger" placeholder="ranger name" required><br>
+        <input type="number" name="badge" placeholder="ranger name" required><br>
+        <button type="submit">Send</button>
+    </form>
+
+    <form action="/info/location/new" method="post">
+        <input type="text" name="location" placeholder="location" required>
+        <button type="submit">Send</button>
+    </form>
+
 {{/partial}}
 {{> layout.hbs}}

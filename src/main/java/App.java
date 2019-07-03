@@ -1,5 +1,6 @@
 import interfaces.*;
 import models.Animal;
+import models.Location;
 import models.Ranger;
 import models.Species;
 import org.sql2o.Sql2o;
@@ -44,7 +45,6 @@ public class App {
             Boolean endangered = Boolean.parseBoolean(request.queryParams("boolean"));
             Animal newAnimal = new Animal(theName, health, age, endangered);
             sqlAnimalInterface.add(newAnimal);
-            user.put("animals", newAnimal);
             return new ModelAndView(user, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -54,14 +54,29 @@ public class App {
             String species = request.queryParams("species");
             Species newSpecies = new Species(species);
             sqlSpeciesInterface.add(newSpecies);
-            user.put("species", newSpecies);
             return new ModelAndView(user, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
 
         //Post: Receive data from the Ranger form
+        post("/info/ranger/new", (request, response) -> {
+            Map<String, Object> user = new HashMap<>();
+            String rangerName = request.queryParams("ranger");
+            int badgeNo = Integer.parseInt(request.queryParams("badge"));
+            Ranger newRanger = new Ranger(rangerName, badgeNo);
+            sqlRangerInterface.add(newRanger);
+            return new ModelAndView(user, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
         //Post: Receive data from the Locations form
-        //Get: Display the success page
+        post("/info/location/new", (request, response) -> {
+            Map<String, Object> user = new HashMap<>();
+            String theLocation = request.queryParams("location");
+            Location newLocation = new Location(theLocation);
+            sqlLocationInterface.add(newLocation);
+            return new ModelAndView(user, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
         //Get: Display the Sightings form
         //Post: Receive data from the Sightings form
     }
