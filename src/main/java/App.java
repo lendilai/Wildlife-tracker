@@ -1,6 +1,7 @@
 import interfaces.*;
 import models.Animal;
 import models.Ranger;
+import models.Species;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -42,12 +43,22 @@ public class App {
             String age = request.queryParams("age");
             Boolean endangered = Boolean.parseBoolean(request.queryParams("boolean"));
             Animal newAnimal = new Animal(theName, health, age, endangered);
-            user.put("animals", newAnimal);
             sqlAnimalInterface.add(newAnimal);
+            user.put("animals", newAnimal);
             return new ModelAndView(user, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
         //Post: Receive data from the Species form
+        post("/info/species/new", (request, response) -> {
+            Map<String, Object> user = new HashMap<>();
+            String species = request.queryParams("species");
+            Species newSpecies = new Species(species);
+            sqlSpeciesInterface.add(newSpecies);
+            user.put("species", newSpecies);
+            return new ModelAndView(user, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
         //Post: Receive data from the Ranger form
         //Post: Receive data from the Locations form
         //Get: Display the success page
