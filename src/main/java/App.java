@@ -96,6 +96,13 @@ public class App {
             user.put("sighting", newSighting);
             return new ModelAndView(user, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //Get: View all sightings made
+        get("/sightings", (request, response) -> {
+            Map<String, Object> user = new HashMap<>();
+            user.put("allSightings", sqlSightingsInterface.getAllSightings());
+            return new ModelAndView(user, "sightings.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 
 }
