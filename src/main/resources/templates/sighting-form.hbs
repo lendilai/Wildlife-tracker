@@ -1,0 +1,26 @@
+{{#partial "content"}}
+<form action="/sightings/new" method="post">
+    <select name="animal">
+        {{#each animals}}
+                <option>{{the_name}}</option>
+            {{/each}}
+    </select>
+    <select name="specie">
+        {{#each species}}
+            <option>{{the_name}}</option>
+        {{/each}}
+    </select>
+    <select name="location">
+        {{#each locations}}
+            <option>{{location}}</option>
+        {{/each}}
+    </select>
+    <select name="ranger">
+        {{#each rangers}}
+            <option>{{ranger}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">Send</button>
+</form>
+{{/partial}}
+{{> layout.hbs}}

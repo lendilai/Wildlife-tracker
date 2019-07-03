@@ -1,8 +1,5 @@
 import interfaces.*;
-import models.Animal;
-import models.Location;
-import models.Ranger;
-import models.Species;
+import models.*;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -16,8 +13,8 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
         //To connect to the database
-        String connectIt = "jdbc:h2:~/wildlife.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectIt, "", "");
+        String connectIt = "jdbc:postgresql://localhost:5432/wildlife_tracker";
+        Sql2o sql2o = new Sql2o(connectIt, "rlgriff", "547");
         SqlRangerInterface sqlRangerInterface= new SqlRangerInterface(sql2o);
         SqlAnimalInterface sqlAnimalInterface = new SqlAnimalInterface(sql2o);
         SqlSpeciesInterface sqlSpeciesInterface = new SqlSpeciesInterface(sql2o);
@@ -78,7 +75,27 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //Get: Display the Sightings form
+        get("/sightings/new", (request, response) -> {
+            Map<String, Object> user = new HashMap<>();
+            user.put("animals", sqlAnimalInterface.getAll());
+            user.put("species", sqlSpeciesInterface.getAll());
+            user.put("locations", sqlLocationInterface.getAll());
+            user.put("rangers", sqlRangerInterface.getAll());
+            return new ModelAndView(user, "sighting-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
         //Post: Receive data from the Sightings form
+        post("/sightings/new", (request, response) -> {
+            Map<String, Object> user = new HashMap<>();
+            String animal = request.queryParams("animal");
+            String specie = request.queryParams("specie");
+            String location = request.queryParams("location");
+            String ranger = request.queryParams("ranger");
+            Sightings newSighting = new Sightings(animal, specie, ranger, location);
+            sqlSightingsInterface.addSighting(newSighting);
+            user.put("sighting", newSighting);
+            return new ModelAndView(user, "success.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 
 }

@@ -1,5 +1,9 @@
 {{#partial "content"}}
-<p>Info added</p>
+{{#if sighting}}
+    <p>Sighting recorded</p>
+    {{else}}
+    <p>Info added</p>
+{{/if}}
     <a href="/">Home</a>
 {{/partial}}
 {{> layout.hbs}}
