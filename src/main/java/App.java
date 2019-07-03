@@ -13,13 +13,13 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
         //To connect to the database
-//        String connectIt = "jdbc:h2:~/wildlife.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-//        Sql2o sql2o = new Sql2o(connectIt, "", "");
-//        SqlRangerInterface sqlRangerInterface= new SqlRangerInterface(sql2o);
-//        SqlAnimalInterface sqlAnimalInterface = new SqlAnimalInterface(sql2o);
-//        SqlSpeciesInterface sqlSpeciesInterface = new SqlSpeciesInterface(sql2o);
-//        SqlLocationInterface sqlLocationInterface = new SqlLocationInterface(sql2o);
-//        SqlSightingsInterface sqlSightingsInterface = new SqlSightingsInterface(sql2o);
+        String connectIt = "jdbc:h2:~/wildlife.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        Sql2o sql2o = new Sql2o(connectIt, "", "");
+        SqlRangerInterface sqlRangerInterface= new SqlRangerInterface(sql2o);
+        SqlAnimalInterface sqlAnimalInterface = new SqlAnimalInterface(sql2o);
+        SqlSpeciesInterface sqlSpeciesInterface = new SqlSpeciesInterface(sql2o);
+        SqlLocationInterface sqlLocationInterface = new SqlLocationInterface(sql2o);
+        SqlSightingsInterface sqlSightingsInterface = new SqlSightingsInterface(sql2o);
 
         //Get: Display home page
         //Get: Display add info page with tabs for forms
