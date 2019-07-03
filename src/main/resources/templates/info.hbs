@@ -1,0 +1,13 @@
+{{#partial "content"}}
+<form action="/info/animal/new" method="post">
+    <input type="text" placeholder="name" name="name" required><br>
+    <input type="text" placeholder="name" name="health" required><br>
+    <input type="text" placeholder="name" name="age" required><br>
+    <select name="boolean">
+        <option>true</option>
+        <option>false</option>
+    </select>
+    <button type="submit">Send</button>
+</form>
+{{/partial}}
+{{> layout.hbs}}

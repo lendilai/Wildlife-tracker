@@ -1,4 +1,5 @@
 import interfaces.*;
+import models.Animal;
 import models.Ranger;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
@@ -22,8 +23,30 @@ public class App {
         SqlSightingsInterface sqlSightingsInterface = new SqlSightingsInterface(sql2o);
 
         //Get: Display home page
+        get("/", (request, response) -> {
+            Map<String, Object> user = new HashMap<>();
+            return new ModelAndView(user, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
         //Get: Display add info page with tabs for forms
+        get("/info", (request, response) -> {
+            Map<String, Object> user = new HashMap<>();
+            return new ModelAndView(user, "info.hbs");
+        }, new HandlebarsTemplateEngine());
+
         //Post: Receive data from the Animals form
+        post("/info/animal/new", (request, response) -> {
+            Map<String, Object> user = new HashMap<>();
+            String theName = request.queryParams("name");
+            String health = request.queryParams("health");
+            String age = request.queryParams("age");
+            Boolean endangered = Boolean.parseBoolean(request.queryParams("boolean"));
+            Animal newAnimal = new Animal(theName, health, age, endangered);
+            user.put("animals", newAnimal);
+            sqlAnimalInterface.add(newAnimal);
+            return new ModelAndView(user, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
         //Post: Receive data from the Species form
         //Post: Receive data from the Ranger form
         //Post: Receive data from the Locations form
