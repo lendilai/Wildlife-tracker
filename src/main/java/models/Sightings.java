@@ -23,9 +23,7 @@ public class Sightings {
     public static final String YOUNG = "Young";
     public static final String ADULT = "Adult";
     private int id;
-    private LocalDateTime sighted_on = LocalDateTime.now();
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy");
-    private String formatDateTime;
+    private Timestamp sighted_on;
 
     public Sightings(String animal_id, String species_id, String ranger_id, String location_id, String health, String age, String url){
         this.animal_id = animal_id;
@@ -35,7 +33,7 @@ public class Sightings {
         this.health = health;
         this.age = age;
         this.url = url;
-        this.formatDateTime = sighted_on.format(formatter);
+        this.sighted_on = new Timestamp(new Date().getTime());
     }
 
     @Override
@@ -50,15 +48,13 @@ public class Sightings {
                 getLocation_id().equals(sightings.getLocation_id()) &&
                 getHealth().equals(sightings.getHealth()) &&
                 getAge().equals(sightings.getAge()) &&
-                url.equals(sightings.url) &&
-                getSighted_on().equals(sightings.getSighted_on()) &&
-                formatter.equals(sightings.formatter) &&
-                getFormatDateTime().equals(sightings.getFormatDateTime());
+                getUrl().equals(sightings.getUrl()) &&
+                getSighted_on().equals(sightings.getSighted_on());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getRanger_id(), getSpecies_id(), getAnimal_id(), getLocation_id(), getHealth(), getAge(), url, getId(), getSighted_on(), formatter, getFormatDateTime());
+        return Objects.hash(getRanger_id(), getSpecies_id(), getAnimal_id(), getLocation_id(), getHealth(), getAge(), getUrl(), getId(), getSighted_on());
     }
 
     public String getRanger_id() {
@@ -121,11 +117,7 @@ public class Sightings {
         this.id = id;
     }
 
-    public String getFormatDateTime() {
-        return formatDateTime;
-    }
-
-    public LocalDateTime getSighted_on() {
+    public Timestamp getSighted_on() {
         return sighted_on;
     }
 }

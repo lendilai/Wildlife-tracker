@@ -36,10 +36,4 @@ public class SightingsTest {
         assertEquals("Healthy", first.getHealth());
         assertEquals("Young", first.getAge());
     }
-
-    @Test
-    public void getsCorrectDate() {
-        Sightings newSighting = new Sightings("Lion", "Panthera leo", "John Doe", "Kenya", Sightings.HEALTHY, Sightings.YOUNG, "tghv");
-        assertEquals(LocalDateTime.now().getDayOfWeek(), newSighting.getSighted_on().getDayOfWeek());
-    }
 }

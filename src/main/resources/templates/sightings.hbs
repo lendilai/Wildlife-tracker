@@ -13,7 +13,8 @@
                 <div class="card-body">
                     <h5 class="card-title">{{animal_id}}  ({{species_id}})</h5>
                     <p>Age:  {{age}} <br>  Health:  {{health}}</p><br>
-                    <p>Sighted at: {{location_id}}<br>Sighted By: {{ranger_id}}</p>
+                    <p>Sighted at: {{location_id}}<br>Sighted By: {{ranger_id}}</p><br>
+                    <i class="far fa-clock"></i><p>{{sighted_on}}</p>
                 </div>
             </div>
         </div>
@@ -21,7 +22,7 @@
     </div>
     {{/if}}
     {{else}}
-        <p>There are no sightings</p>
+        <p class="none">There are no sightings</p>
 
 
 

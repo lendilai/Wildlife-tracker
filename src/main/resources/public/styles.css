@@ -99,7 +99,19 @@ color:black;
   transition: 0.67s;
   cursor: pointer;
 }
-
+.fa-clock{
+color:black;
+}
+.none{
+color:white;
+}
+option{
+color:grey;
+}
+.all{
+color:grey;
+float:left;
+}
 .sighting-form {
   height: 100%;
   margin-top: -9%;
