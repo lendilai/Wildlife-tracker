@@ -31,7 +31,7 @@ public class SqlSightingsInterfaceTest {
     }
 
     public Sightings setUpSighting(){
-        return new Sightings("Lion", "Panthera leo", "John Doe", "Kenya", Sightings.HEALTHY, Sightings.NEW_BORN);
+        return new Sightings("Lion", "Panthera leo", "John Doe", "Kenya", Sightings.HEALTHY, Sightings.NEW_BORN, "ytf");
     }
     @Test
     public void addsSightingAndSetsId() throws Exception{

@@ -97,7 +97,8 @@ public class App {
             String ranger = request.queryParams("ranger");
             String age = request.queryParams("age");
             String health = request.queryParams("health");
-            Sightings newSighting = new Sightings(animal, specie, ranger, location, age, health);
+            String url = request.queryParams("url");
+            Sightings newSighting = new Sightings(animal, specie, ranger, location, age, health, url);
             sqlSightingsInterface.addSighting(newSighting);
             user.put("sighting", newSighting);
             return new ModelAndView(user, "success.hbs");

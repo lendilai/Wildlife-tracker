@@ -15,6 +15,7 @@ public class Sightings {
     private String location_id;
     private String health;
     private String age;
+    private String url;
     public static final String HEALTHY = "Healthy";
     public static final String ILL = "ill";
     public static final String OKAY = "Okay";
@@ -26,13 +27,14 @@ public class Sightings {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy");
     private String formatDateTime;
 
-    public Sightings(String animal_id, String species_id, String ranger_id, String location_id, String health, String age){
+    public Sightings(String animal_id, String species_id, String ranger_id, String location_id, String health, String age, String url){
         this.animal_id = animal_id;
         this.species_id = species_id;
         this.ranger_id = ranger_id;
         this.location_id = location_id;
         this.health = health;
         this.age = age;
+        this.url = url;
         this.formatDateTime = sighted_on.format(formatter);
     }
 
@@ -46,16 +48,17 @@ public class Sightings {
                 getSpecies_id().equals(sightings.getSpecies_id()) &&
                 getAnimal_id().equals(sightings.getAnimal_id()) &&
                 getLocation_id().equals(sightings.getLocation_id()) &&
-                health.equals(sightings.health) &&
-                age.equals(sightings.age) &&
-                sighted_on.equals(sightings.sighted_on) &&
+                getHealth().equals(sightings.getHealth()) &&
+                getAge().equals(sightings.getAge()) &&
+                url.equals(sightings.url) &&
+                getSighted_on().equals(sightings.getSighted_on()) &&
                 formatter.equals(sightings.formatter) &&
                 getFormatDateTime().equals(sightings.getFormatDateTime());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getRanger_id(), getSpecies_id(), getAnimal_id(), getLocation_id(), health, age, getId(), sighted_on, formatter, getFormatDateTime());
+        return Objects.hash(getRanger_id(), getSpecies_id(), getAnimal_id(), getLocation_id(), getHealth(), getAge(), url, getId(), getSighted_on(), formatter, getFormatDateTime());
     }
 
     public String getRanger_id() {
@@ -106,6 +109,10 @@ public class Sightings {
         return age;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
     public int getId() {
         return id;
     }
@@ -116,5 +123,9 @@ public class Sightings {
 
     public String getFormatDateTime() {
         return formatDateTime;
+    }
+
+    public LocalDateTime getSighted_on() {
+        return sighted_on;
     }
 }

@@ -27,6 +27,7 @@ public class RangerTest {
     }
 
 
+
     public Ranger setUpRanger(){
         return new Ranger("HR",547);
     }

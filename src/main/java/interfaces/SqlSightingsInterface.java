@@ -14,7 +14,7 @@ public class SqlSightingsInterface implements SightingsInterface{
 
     @Override
     public void addSighting(Sightings sightings){
-        String sql = "INSERT INTO sightings (ranger_id, species_id, animal_id, location_id, health, age) VALUES (:ranger_id, :species_id, :animal_id, :location_id, :health, :age)";
+        String sql = "INSERT INTO sightings (ranger_id, species_id, animal_id, location_id, health, age, url) VALUES (:ranger_id, :species_id, :animal_id, :location_id, :health, :age, :url)";
         try(Connection conn = sql2o.open()){
             int id = (int) conn.createQuery(sql, true).bind(sightings).executeUpdate().getKey();
             sightings.setId(id);
