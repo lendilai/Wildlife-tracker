@@ -16,7 +16,7 @@ public class Sightings {
     private String health;
     private String age;
     public static final String HEALTHY = "Healthy";
-    public static final String ILL = "Ill";
+    public static final String ILL = "ill";
     public static final String OKAY = "Okay";
     public static final String NEW_BORN = "Newborn";
     public static final String YOUNG = "Young";
@@ -76,6 +76,30 @@ public class Sightings {
 
     public String getHealth() {
         return health;
+    }
+
+    public static String getHEALTHY() {
+        return HEALTHY;
+    }
+
+    public static String getILL() {
+        return ILL;
+    }
+
+    public static String getOKAY() {
+        return OKAY;
+    }
+
+    public static String getNewBorn() {
+        return NEW_BORN;
+    }
+
+    public static String getYOUNG() {
+        return YOUNG;
+    }
+
+    public static String getADULT() {
+        return ADULT;
     }
 
     public String getAge() {
