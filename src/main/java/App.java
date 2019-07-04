@@ -11,10 +11,22 @@ import java.util.Map;
 public class App {
 
     public static void main(String[] args) {
+        ProcessBuilder process = new ProcessBuilder();
+        Integer port;
+
+        if (process.environment().get("PORT") != null) {
+            port = Integer.parseInt(process.environment().get("PORT"));
+        }else {
+            port = 4567;
+        }
+        port(port);
+
         staticFileLocation("/public");
         //To connect to the database
-        String connectIt = "jdbc:postgresql://localhost:5432/wildlife_tracker";
-        Sql2o sql2o = new Sql2o(connectIt, "rlgriff", "547");
+//        String connectIt = "jdbc:postgresql://localhost:5432/wildlife_tracker";
+//        Sql2o sql2o = new Sql2o(connectIt, "rlgriff", "547");
+        String connectionString = "postgresql://pliouuoiailxzs:5d3a4f152dd34d31d63e00e56ea0428432e944333634a28b3a8d567b954c489e@ec2-23-21-160-38.compute-1.amazonaws.com:5432/daf4s3j9rfktb0";
+        Sql2o sql2o = new Sql2o(connectionString, "pliouuoiailxzs", "5d3a4f152dd34d31d63e00e56ea0428432e944333634a28b3a8d567b954c489e");
         SqlRangerInterface sqlRangerInterface= new SqlRangerInterface(sql2o);
         SqlAnimalInterface sqlAnimalInterface = new SqlAnimalInterface(sql2o);
         SqlSpeciesInterface sqlSpeciesInterface = new SqlSpeciesInterface(sql2o);

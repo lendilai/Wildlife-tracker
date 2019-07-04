@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=DM+Serif+Text&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  background-attachment: fixed;
+}
+
+.top {
+  margin-top: 22%;
+}
+
+.top h1 {
+  font-family: 'DM Serif Text';
+}
+
+@media screen and (max-width: 900px) {
+  .top {
+    margin-top: 60%;
+  }
+  .fa-filter {
+    border-radius: 5px;
+    margin-top: 0%;
+    margin-right: 0%;
+  }
+}
+
+.fa-arrow-left {
+  padding: 25px;
+  font-size: 27px;
+  color: white;
+}
+
+.fa-arrow-left:hover {
+  transform: scale(1.3, 1.3);
+  transition: 0.3s ease-out;
+  transition-delay: 0.1s;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: orange;
+}
+
+.card{
+margin-bottom:2%;
+}
+
+.card p, .card h5{
+color:black;
+}
+.sightings {
+  width: 80%;
+  margin: auto;
+}
+
+.allSightings {
+  text-decoration: underline;
+  margin-bottom: 1%;
+  font-family: 'DM Serif Text';
+}
+
+.allLocations {
+  text-decoration: underline;
+  margin-bottom: 3%;
+  font-family: 'DM Serif Text';
+}
+
+.table-responsive {
+  margin: auto;
+  width: 80%;
+}
+
+.fa-filter {
+  background-color: white;
+  color: #DAA520;
+  float: right;
+  padding: 0.3%;
+  border-radius: 5px;
+  margin-top: -5%;
+  margin-right: 30%;
+}
+
+.fa-filter:hover {
+  color: orange;
+  transition: 0.67s;
+  cursor: pointer;
+}
+.fa-clock{
+color:black;
+}
+.none{
+color:white;
+}
+option{
+color:grey;
+}
+.all{
+color:grey;
+float:left;
+}
+.sighting-form {
+  height: 100%;
+  margin-top: -9%;
+}
+.success {
+  color: white;
+  margin-top: 10%;
+}
+
+.success p {
+  font-size: 22px;
+}
+
+.hd-success {
+  font-family: 'DM Serif Text';
+  text-decoration: underline;
+}

@@ -1,0 +1,84 @@
+{{#partial "content"}}
+<a href="/"><i class="fas fa-arrow-left"></i></a>
+<div class="sighting-form">
+    <form action="/sightings/new" method="post">
+        <div class="modal-dialog cascading-modal" role="document">
+            <div class="modal-content">
+                <div class="modal-header yellow darken-3 white-text">
+                    <h4 class="title">
+                        <i class="fas fa-paw"></i> Sighting Info</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="md-form form-sm">
+                        <i class="fas fa-paw all"> Animal</i>
+                        <select class="form-control" name="animal">
+                            {{#each animals}}
+                                <option>{{the_name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="md-form form-sm">
+                        <i class="fas fa-fingerprint all"> Species</i>
+                        <select class="form-control" name="specie">
+                            {{#each species}}
+                                <option>{{the_name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="md-form form-sm">
+                        <i class="fas fa-map-marked-alt all"> Location</i>
+                        <select class="form-control" name="location">
+                            {{#each locations}}
+                                <option>{{location}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="md-form form-sm">
+                        <i class="fas fa-tree all">  Ranger </i>
+                        <select class="form-control" name="ranger">
+                            {{#each rangers}}
+                                <option>{{ranger}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="md-form form-sm">
+                        <i class="fas fa-heartbeat all"> Health</i>
+                        <select class="form-control" name="health">
+                            <option>{{healthInfo1}}</option>
+                            <option>{{healthInfo2}}</option>
+                            <option>{{healthInfo3}}</option>
+                        </select>
+                    </div>
+
+                    <div class="md-form form-sm">
+                        <i class="fas fa-yin-yang all"> Age-Group</i>
+                        <select class="form-control" name="age">
+                            <option>{{ageInfo1}}</option>
+                            <option>{{ageInfo2}}</option>
+                            <option>{{ageInfo3}}</option>
+                        </select>
+                    </div>
+
+                    <div class="md-form form-sm">
+                        <i class="fas fa-signature all"> Animal Image</i>
+                        <input type="text" name="image" required class="form-control form-control-sm" placeholder="e.g. http://www.hgxznbx.com">
+                    </div>
+
+                    <div class="text-center mt-4 mb-2">
+                        <button class="btn btn-outline-yellow darken-3" type="submit">Add Sighting
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+        <!--/Modal: Contact form-->
+    </form>
+</div>
+{{/partial}}
+{{> layout.hbs}}
