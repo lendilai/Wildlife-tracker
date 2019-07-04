@@ -1,5 +1,5 @@
 # Wildlife-Tracker
-
+![](img/rename.png)
 ## By **Nathan Ng'ethe** Version: 1.0.
 
 ## Description
@@ -24,7 +24,8 @@ This is an awesome app that helps rangers and animal parks as a whole keep track
 ## Setup instructions for the database
 1. First make sure that you have postgres installed.
    If not, run:
-   ```
+   ```bash
+
    $ sudo apt update
    $ sudo apt install postgresql postgresql-contrib
 
@@ -42,9 +43,11 @@ $ psql //Launches Postgres
 # CREATE TABLE locations(id SERIAL PRIMARY KEY, location VARCHAR);
 # CRETE TABLE sightings(id SERIAL PRIMARY KEY, ranger_id VARCHAR, species_id VARCHAR, animal_id VARCHAR,location_id VARCHAR, health VARCHAR, age VARCHAR, sighted_on timestamp);
 # CREATE TABLE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
+
 ```
+
 ## Demo
-![](assets/caesar.gif)
+![](img/demo.gif)
 
 ## Technologies used
 - [Java](https://www.java.com/) - This was used to ensure functionality.
