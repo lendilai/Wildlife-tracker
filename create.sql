@@ -18,8 +18,8 @@ CREATE DATABASE wildlife_tracker;
     the_name VARCHAR,
  );
 
- CREATE TABLE animals(id SERIAL PRIMARY KEY,the_name VARCHAR,health VARCHAR,age VARCHAR, endangered boolean);
+ CREATE TABLE animals(id SERIAL PRIMARY KEY,the_name VARCHAR endangered boolean);
 
- CREATE TABLE sightings(id SERIAL PRIMARY KEY, ranger_id VARCHAR, species_id VARCHAR, animal_id VARCHAR,location_id VARCHAR);
+ CREATE TABLE sightings(id SERIAL PRIMARY KEY, ranger_id VARCHAR, species_id VARCHAR, animal_id VARCHAR,location_id VARCHAR, health VARCHAR, age VARCHAR, sighted_on VARCHAR);
 
  CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;

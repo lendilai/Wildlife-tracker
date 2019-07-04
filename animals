@@ -1,0 +1,119 @@
+\q
+table
+\q
+\C
+\c wildlife_tracker
+exit
+\q
+\q
+\l
+\l
+CREATE DATABASE wildlife_tracker
+\c wildlife_tracker
+DROP DATABASE *;
+DROP DATABASE wildlife;
+DROP DATABASE wildlifetest;
+\l
+DROP DATABASE wildlife_test;
+\l;
+\l
+DROP DATABASE Nathan;
+\q
+CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker
+\c
+\q
+\c wildlife_tracker
+DROP DATABASE wildlife_tracker_test
+;
+CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
+\dt
+ CREATE TABLE locations(
+    id int PRIMARY KEY,
+    location VARCHAR,
+ );\
+CREATE TABLE locations(id int SERIAL PRIMARY KEY, location VARCHAR);
+CREATE TABLE locations(id SERIAL PRIMARY KEY, location VARCHAR);
+DROP DATABASE wildlife_tracker_test
+;
+CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
+\du
+ALTER USER rlgriff WITH SUPERUSER;
+\d
+\d animal
+\d animals
+DROP TABLE animals
+;
+ CREATE TABLE animals(id SERIAL PRIMARY KEY,the_name VARCHAR,health VARCHAR,age VARCHAR, endangered boolean);
+DROP DATABASE wildlife_tracker_test
+;
+CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker
+;
+DROP DATABASE wildlife_tracker_test
+;
+CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker
+;
+CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker
+;
+/q
+\q
+\c wildlife_tracker_test
+\d
+\d animals
+\q
+\c wildlife_tracker
+\dt
+CREATE TABLE species(id SERIAL PRIMARY KEY, the_name VARCHAR);
+\Q
+\q
+\c wildlife_tracker
+\dt
+\
+\c wildlife_tracker_test
+\q
+DROP DATABASE wildlife_tracker_test
+;
+CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker
+;
+\c wildlife_tracker
+\dt
+\d rangers
+\d locations
+\c wildlife_tracker_test
+DROP DATABASE wildlife_tracker_test
+;
+\q
+\c wildlife_tracker_test
+DROP DATABASE wildlife_tracker_test
+;
+DROP DATABASE wildlife_tracker_test
+;
+CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker
+;
+\c wildlife_tracker_test
+\dt
+\d rangers
+\q
+\c wildlife_tracker
+DROP TABLE rangers
+;
+CREATE TABLE rangers(id SERIAL PRIMARY KEY, ranger VARCHAR, badge int);
+\c wildlife_tracker_test
+DROP DATABASE wildlife_tracker_test
+;
+\q
+\c wildlife_tracker
+\dt
+\dt sightings
+\d sightings
+DROP TABLE sightings
+;
+ CREATE TABLE sightings(id SERIAL PRIMARY KEY, ranger_id VARCHAR, species_id VARCHAR, animal_id VARCHAR,location_id VARCHAR);
+\q
+\c wildlife_tracker
+DROP DATABASE wildlife_tracker_test
+;
+ CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
+\wildlife_tracker
+\c wildlife_tracker;
+\dt animals
+\s animals

@@ -14,7 +14,7 @@ public class SqlAnimalInterface implements AnimalInterface{
 
     @Override
     public void add(Animal animal){
-        String sql = "INSERT INTO animals(the_name, health, age, endangered) VALUES (:the_name,:health,:age,:endangered)";
+        String sql = "INSERT INTO animals(the_name, endangered) VALUES (:the_name,:endangered)";
         try(Connection conn =sql2o.open()){
             int id = (int) conn.createQuery(sql, true).bind(animal).executeUpdate().getKey();
             animal.setId(id);

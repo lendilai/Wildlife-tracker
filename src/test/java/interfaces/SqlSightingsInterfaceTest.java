@@ -31,7 +31,7 @@ public class SqlSightingsInterfaceTest {
     }
 
     public Sightings setUpSighting(){
-        return new Sightings("Lion", "Panthera leo", "John Doe", "Kenya");
+        return new Sightings("Lion", "Panthera leo", "John Doe", "Kenya", Sightings.HEALTHY, Sightings.NEW_BORN);
     }
     @Test
     public void addsSightingAndSetsId() throws Exception{
@@ -51,12 +51,12 @@ public class SqlSightingsInterfaceTest {
     }
 
     @Test
-    public void findsTheCorrectSghtingById() {
+    public void findsTheCorrectSightingById() {
         Sightings first = setUpSighting();
         Sightings second = setUpSighting();
         sqlSightingsInterface.addSighting(first);
         sqlSightingsInterface.addSighting(second);
         Sightings found = sqlSightingsInterface.findSighting(second.getId());
-        assertEquals(second, found);
+        assertEquals(second.getAnimal_id(), found.getAnimal_id());
     }
 }

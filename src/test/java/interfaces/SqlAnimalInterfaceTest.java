@@ -31,7 +31,7 @@ public class SqlAnimalInterfaceTest {
 
     @Test
     public void addsAnimalAndSetsId() throws Exception{
-        Animal newAnimal = new Animal("Lion", "Okay", "New-born", false);
+        Animal newAnimal = new Animal("Lion",false);
         sqlAnimalInterface.add(newAnimal);
         int theId = newAnimal.getId();
         assertEquals(theId, newAnimal.getId());
@@ -39,14 +39,14 @@ public class SqlAnimalInterfaceTest {
 
     @Test
     public void getsAllAnimalObjects() {
-        Animal first = new Animal("Lion", "Okay", "New-born", false);
+        Animal first = new Animal("Lion", false);
         sqlAnimalInterface.add(first);
         assertEquals(1, sqlAnimalInterface.getAll().size());
     }
 
     @Test
     public void fetchesCorrectAnimal() {
-        Animal theAnimal = new Animal("Lion", "Poor", "Prime-Adult", false);
+        Animal theAnimal = new Animal("Lion",false);
         sqlAnimalInterface.add(theAnimal);
         Animal found = sqlAnimalInterface.findById(theAnimal.getId());
         assertEquals(theAnimal, found);
