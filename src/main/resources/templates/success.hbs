@@ -1,9 +1,13 @@
 {{#partial "content"}}
+<div class="text-center success">
+    <h2 class="hd-success">Success!!</h2><br>
 {{#if sighting}}
-    <p>Sighting recorded</p>
-    {{else}}
-    <p>Info added</p>
-{{/if}}
-    <a href="/">Home</a>
+        <p>Your sighting has been added <br>
+        <a href="/sightings"><button class="btn btn-outline-amber">View Sightings</button></a>
+{{else}}
+<p>Your info has been recorded</p><br><p>You can now add a sighting</p>
+    <a href="/sightings/new"><button class="btn btn-outline-amber">Add A Sighting</button></a>
+    {{/if}}
+    </div>
 {{/partial}}
 {{> layout.hbs}}

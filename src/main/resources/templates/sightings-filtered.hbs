@@ -1,16 +1,27 @@
 {{#partial "content"}}
+    <a href="/sightings"><i class="fas fa-arrow-left"></i></a><br>
+
+    <h2 class="allSightings text-center">Sightings</h2><br>
     {{#if filterSightings}}
-        {{#each filterSightings}}
-            <p>{{animal_id}}</p>
-            <p>{{species_id}}</p>
-            <p>{{location_id}}</p>
-            <p>{{ranger_id}}</p>
-            <p>{{endangered}}</p>
-            <p>{{sighted_on}}</p>
-        {{/each}}
-    {{else}}
-        <p>No sightings</p>
+        <div class="container-fluid">
+            <a href="/sightings/most-recent"><i class="fas fa-filter text-center"><br>Most Recent</i></a>
+            <div class="row sightings text-center">
+                {{#each filterSightings}}
+                    <div class="col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="http://www.krugerpark.co.za/images/1-lion-charge-gc590a.jpg" class="card-img-top" alt="Animal Image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{animal_id}}  ({{species_id}})</h5>
+                                <p>Age:  {{age}} <br>  Health:  {{health}}</p><br>
+                                <p>Sighted at: {{location_id}}<br>Sighted By: {{ranger_id}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+        </div>
     {{/if}}
+{{else}}
+        <p>There are no sightings</p>
 {{/partial}}
 
 {{> layout.hbs}}

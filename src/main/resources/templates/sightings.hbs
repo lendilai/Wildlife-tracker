@@ -1,19 +1,33 @@
 {{#partial "content"}}
+    <a href="/"><i class="fas fa-arrow-left"></i></a><br>
+
+    <h2 class="allSightings text-center">Sightings</h2><br>
     {{#if allSightings}}
-        {{#each allSightings}}
-            <p>{{animal_id}}</p>
-            <p>{{species_id}}</p>
-            <p>{{location_id}}</p>
-            <p>{{ranger_id}}</p>
-            <p>{{health}}</p>
-            <p>{{age}}</p>
-            <p>{{sighted_on}}</p>
+    <a href="/sightings/most-recent"><i class="fas fa-filter text-center"><br>Most Recent</i></a>
+
+    <div class="row sightings text-center">
+    {{#each allSightings}}
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img src="http://www.krugerpark.co.za/images/1-lion-charge-gc590a.jpg" class="card-img-top" alt="Animal Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{animal_id}}  ({{species_id}})</h5>
+                    <p>Age:  {{age}} <br>  Health:  {{health}}</p><br>
+                    <p>Sighted at: {{location_id}}<br>Sighted By: {{ranger_id}}</p>
+                </div>
+            </div>
+        </div>
         {{/each}}
-
-        <a href="/sightings/most-recent">Filter</a>
-        {{else}}
-        <p>No sightings</p>
+    </div>
     {{/if}}
-{{/partial}}
+    {{else}}
+        <p>There are no sightings</p>
 
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js">
+
+
+{{/partial}}
 {{> layout.hbs}}

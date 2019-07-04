@@ -1,6 +1,27 @@
 {{#partial "content"}}
-{{#each allLocations}}
-    <p>{{location}}</p>
-{{/each}}
+<a href="/"><i class="fas fa-arrow-left"></i></a>
+<h2 class="text-center allLocations">Locations</h2>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each allLocations}}
+        <tr>
+
+                <th scope="row">{{id}}</th>
+                <td><i class="fas fa-map-marked-alt"></i></td>
+                <td>{{location}}</td>
+
+        </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
 {{/partial}}
 {{> layout.hbs}}

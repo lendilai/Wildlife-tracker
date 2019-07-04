@@ -28,10 +28,11 @@ body {
   .top {
     margin-top: 60%;
   }
-}
-
-.scrollspy-example {
-  height: 360px;
+  .fa-filter {
+    border-radius: 5px;
+    margin-top: 0%;
+    margin-right: 0%;
+  }
 }
 
 .fa-arrow-left {
@@ -54,36 +55,13 @@ a:hover {
   color: orange;
 }
 
-.card {
-  cursor: pointer;
-  height: 75%;
-  transition: transform 0.6s;
-  perspective: 200px;
-  transform-style: preserve-3d;
+.card{
+margin-bottom:2%;
 }
 
-.card.flipped {
-  transform: rotateY(180deg);
+.card p, .card h5{
+color:black;
 }
-
-.card .front,
-.card .back {
-  backface-visibility: hidden;
-}
-
-.he {
-  margin-top: 4%;
-  color: black;
-}
-
-.card .back {
-  text-align: left;
-}
-
-.card .back {
-  transform: rotateY(180deg);
-}
-
 .sightings {
   width: 80%;
   margin: auto;
@@ -99,10 +77,6 @@ a:hover {
   text-decoration: underline;
   margin-bottom: 3%;
   font-family: 'DM Serif Text';
-}
-
-.animal-img {
-  width: 100%;
 }
 
 .table-responsive {
@@ -129,4 +103,17 @@ a:hover {
 .sighting-form {
   height: 100%;
   margin-top: -9%;
+}
+.success {
+  color: white;
+  margin-top: 10%;
+}
+
+.success p {
+  font-size: 22px;
+}
+
+.hd-success {
+  font-family: 'DM Serif Text';
+  text-decoration: underline;
 }
